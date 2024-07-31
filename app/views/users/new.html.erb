@@ -1,0 +1,56 @@
+<!-- <form action="/users" method="post" accept-charset="UTF-8">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>"
+  >
+
+  <label for="username">Username</label>
+  <input type="text" name="[user]username">
+
+  <label for="email">E-Mail</label>
+  <input type="email" name="[user]email">
+
+  <label for="password">Password</label>
+  <input type="password" name="[user]password">
+
+  <input type="submit">
+</form> -->
+
+<%# 
+<%= form_tag(url: "/users", method: "post") do 
+  <%= label_tag(:username, "Username") 
+  <%= text_field_tag(:username) 
+
+  <%= label_tag(:email, "E-Mail") 
+  <%= email_field_tag(:email) 
+
+  <%= label_tag(:password, "Password")
+  <%= password_field_tag(:password) 
+
+  <%= submit_tag("Enter (Rails Form)") 
+<% end  %>
+
+<% if @user.errors.any? %>
+	<ul>
+		<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_with class: "max-w-sm mx-auto", model: @user, method: :patch do |form| %>
+  <%= form.label :username, "Username" %>
+  <%= form.text_field :username %>
+	<br>
+
+  <%= form.label :email, "E-Mail" %>
+  <%= form.email_field :email, placeholder: "example@example.com" %>
+	<br>
+
+  <%= form.label :password, "Password" %>
+  <%= form.password_field :password %>
+	<br>
+
+  <%= form.submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<% end %>
